@@ -15,7 +15,7 @@ class UsersController extends Controller
      */
     public function index(ContactSessionManager $contactSessionManager){
         $contactSessionManager->insert(new Contact());
-        $contacts = $contactSessionManager->getAll();
-        return $this->render('users/index.html.twig',["contacts"=>$contacts]);
+        $contacts = $contactSessionManager->getAll()
+        $this->render('users/index.html.twig',["contacts"=>$contacts]);
     }
 }

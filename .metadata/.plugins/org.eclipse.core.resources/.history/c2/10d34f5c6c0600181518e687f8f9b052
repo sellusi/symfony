@@ -2,5 +2,5 @@
 {% block body %}
 	{% for contact in contacts %}
 		{{contact.nom}}
-	{% endfor %}
+	{%  %}
 {% endblock %}
