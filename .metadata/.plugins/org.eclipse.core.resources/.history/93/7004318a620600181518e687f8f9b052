@@ -1,0 +1,17 @@
+<?php
+namespace App\Service;
+    use Symfony\Component\HttpFoundation\Session\SessionInterface;
+namespace App\Service;
+
+/**
+ * @var SessionInterface
+**/
+private $session;
+
+private function updateSession($values){
+    $this->session->set('users',$values);
+}
+
+public function __construct(SessionInterface $session){
+    $this->session=$session;
+}

@@ -1,0 +1,14 @@
+<?php
+namespace App\Service;
+
+
+
+private $session;
+
+private function updateSession($values){
+    $this->session->set('users',$values);
+}
+
+public function __construct(SessionInterface $session){
+    $this->session=$session;
+}

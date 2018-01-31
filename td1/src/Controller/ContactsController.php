@@ -47,4 +47,28 @@ class ContactsController extends Controller
     {
         return new Response('display');
     }
+    
+    /**
+     * @Route("/contacts/search", name="chercher contact", methods={"POST"})
+     */
+    public function search()
+    {
+        return new Response('search');
+    }
+    
+    /**
+     * @Route("/contacts/select", name="select contact", methods={"POST"})
+     */
+    public function select()
+    {
+        return new Response('select');
+    }
+    
+    /**
+     * @Route("/contacts/delete", name="suppr contact", methods={"POST"})
+     */
+    public function delete()
+    {
+        return new Response('delete');
+    }
 }
