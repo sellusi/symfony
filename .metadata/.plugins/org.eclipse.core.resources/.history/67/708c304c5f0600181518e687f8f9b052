@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Controller;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
+class ContactsController extends Controller
+{
+    /**
+     * @Route("/contacts", name="lsite contacts", methods={"GET"})
+     */
+    public function index()
+    {
+        return new Response('Contacts');
+    }
+    
+    /**
+     * @Route("/contacts/new", name="création contact", methods={"GET"})
+     */
+    public function Create()
+    {
+        return new Response('Contacts');
+    }
+    
+    /**
+     * @Route("/contacts/edit/{index}", name="modification contact", methods={"GET"})
+     */
+    public function modify($index)
+    {
+        return new Response('Contacts');
+    }
+}

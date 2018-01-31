@@ -13,7 +13,7 @@ class ContactsController extends Controller
      */
     public function show()
     {
-        return new Response('show');
+        return new Response('Contacts');
     }
     
     /**
@@ -21,7 +21,7 @@ class ContactsController extends Controller
      */
     public function Create()
     {
-        return new Response('Create');
+        return new Response('Contacts');
     }
     
     /**
@@ -29,7 +29,7 @@ class ContactsController extends Controller
      */
     public function modify($index)
     {
-        return new Response('modify');
+        return new Response('Contacts');
     }
     
     /**
@@ -37,14 +37,6 @@ class ContactsController extends Controller
      */
     public function update($index)
     {
-        return new Response('Update');
-    }
-    
-    /**
-     * @Route("/contacts/display/{index}", name="aff contact", methods={"GET"})
-     */
-    public function display($index)
-    {
-        return new Response('display');
+        return new Response('Contacts');
     }
 }

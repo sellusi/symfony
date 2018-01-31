@@ -39,12 +39,4 @@ class ContactsController extends Controller
     {
         return new Response('Update');
     }
-    
-    /**
-     * @Route("/contacts/display/{index}", name="aff contact", methods={"GET"})
-     */
-    public function display($index)
-    {
-        return new Response('display');
-    }
 }
