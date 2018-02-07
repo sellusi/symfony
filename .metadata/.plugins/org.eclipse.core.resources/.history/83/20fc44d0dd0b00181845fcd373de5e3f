@@ -30,6 +30,6 @@ class UsersController extends Controller
      * @Route("/contact/update",name="contact_update",methods={"POST"})
      */
     public function contactUpdate(){
-        return new Response("Update");
+        retur new Reponse("Update");
     }
 }

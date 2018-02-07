@@ -23,13 +23,6 @@ class UsersController extends Controller
      * @Route("/contact/new",name="contact_new")
      */
     public function contactNew(){
-        return $this->render('users/contact-frm.html.twig',["contact"=>new Contact("Test","Test"),"title"=>"Ajout de contact"]);
-    }
-    
-    /**
-     * @Route("/contact/update",name="contact_update",methods={"POST"})
-     */
-    public function contactUpdate(){
-        return new Response("Update");
+        return $this->render('users/contact-frm.html.twig',["contact"=>new Contact()]);
     }
 }
