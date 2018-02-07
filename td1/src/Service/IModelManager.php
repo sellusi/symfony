@@ -1,12 +1,14 @@
 <?php
 namespace App\Service;
-interface IModelManager{
+interface IModelManager
+{
     public function getAll();
     public function insert($object);
-    public function update($object,$values);
-    public function delete($indexes);
+    public function updateSession($value);
+    public function delete($index);
+    public function deleteAll();
     public function get($index);
-    public function filterBy($keyAndValues);
+    public function filerBy($key, $value);
     public function count();
-    public function select($indexes);
+    public function select($index);
 }

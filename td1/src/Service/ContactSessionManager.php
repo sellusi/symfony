@@ -1,51 +1,63 @@
 <?php
 namespace App\Service;
-
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
-class ContactSessionManager implements IModelManager{
+class ContactSessionManager implements IModelManager
+{
     const KEY='contacts';
     /**
      * @var SessionInterface
-    **/
-    
+     */
     private $session;
-    
-    private function updateSession($values){
-        $this->session->set('users',$values);
+    /**
+     * ContactSessionManager constructor.
+     * @param SessionInterface $session
+     */
+    public function __construct(SessionInterface $session)
+    {
+        $this->session = $session;
     }
-    
-    public function __construct(SessionInterface $session){
-        $this->session=$session;
-    }
-    public function getAll(){
+    public function getAll()
+    {
         return $this->session->get(self::KEY,[]);
     }
-
-    public function select($indexes){
-        
+    public function insert($object)
+    {
+        $contacts=$this->getAll();
+        $contacts[]=$object;
+        $this->updateSession($contacts);
     }
-
+    public function updateSession($value)
+    {
+        $this->session->set(self::KEY, $value);
+    }
+    public function delete($index)
+    {
+        $contacts=$this->getAll();
+        $contacts[$index] = null;
+        $this->updateSession($contacts);
+    }
+    public function deleteAll()
+    {
+        $contacts=$this->getAll();
+        $contacts= array();
+        $this->updateSession($contacts);
+    }
     public function get($index)
-    {}
-
+    {
+        return $this->session->get($index);
+    }
+    public function filerBy($key, $value)
+    {
+        // TODO: Implement filerBy() method.
+    }
     public function count()
-    {}
-
-    public function insert($object){
-        $users=$this->getAll();
-        $users[]=$object;
-        $this->updateSession($users);
+    {
+        $contacts=$this->getAll();
+        $count = sizeof($contacts);
+        return $count;
     }
-
-    public function update($object, $values){
-        
+    public function select($index)
+    {
+        // TODO: Implement select() method.
     }
-
-    public function filterBy($keyAndValues)
-    {}
-
-    public function delete($indexes)
-    {}
-
 }

@@ -18,4 +18,11 @@ class UsersController extends Controller
         $contacts = $contactSessionManager->getAll();
         return $this->render('users/index.html.twig',["contacts"=>$contacts]);
     }
+    
+    /**
+     * @Route("/contact/new",name="contact_new")
+     */
+    public function contactNew(){
+        return $this->render('users/contact-frm.html.twig',["contact"=>new Contact()]);
+    }
 }

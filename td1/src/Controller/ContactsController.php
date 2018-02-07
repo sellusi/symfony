@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\Contact;
+use App\Service\ContactSessionManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,19 +13,20 @@ class ContactsController extends Controller
     /**
      * @Route("/contacts", name="liste contacts", methods={"GET"})
      */
-    public function show()
+    public function index(ContactSessionManager $csm)
     {
-        return new Response('show');
+        $csm->deleteAll();
+        $csm->insert(new Contact("MACHIN","Machin"));
+        return $this->render('Users/index.html.twig', ["contacts"=>$csm->getAll()]);
     }
     
     /**
      * @Route("/contacts/new", name="création contact", methods={"GET"})
      */
-    public function Create()
-    {
-        return new Response('Create');
+    public function new(){
+        // replace this line with your own code!
+        return $this->render('Contact/contact.new.html.twig', [ 'path' => str_replace($this->getParameter('kernel.project_dir').'/', '', __FILE__) ]);
     }
-    
     /**
      * @Route("/contacts/edit/{index}", name="modification contact", methods={"GET"})
      */
