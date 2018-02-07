@@ -1,6 +1,13 @@
-{% extends 'base.html.twig' %}
+{%  extends 'base.html.twig' %}
 {% block body %}
 	{% for contact in contacts %}
-		{{contact.nom}}
+	<tr>
+		<td>{{contact.nom}}</td>
+	<td>
+		<a href="{{ path() }}"contact_edit",{"index": loop.index}) }}" class="ui icon button xs">
+			<i class="write icon"></i>
+		</a>
+	</td>
+	</tr>
 	{% endfor %}
 {% endblock %}

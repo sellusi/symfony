@@ -26,9 +26,14 @@ class ContactSessionManager implements IModelManager
         $contacts[]=$object;
         $this->updateSession($contacts);
     }
-    public function updateSession($value)
+    public function updateSession($object,$values)
     {
-        $this->session->set(self::KEY, $value);
+        foreach ($values as $key=>$value){
+            $accesseur="set".$key;
+            if(method_exists($object, $accesseur)){
+                call_user_func_array([$objects,$accesseur], [$value]);
+            }
+        }
     }
     public function delete($index)
     {

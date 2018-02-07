@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Model\Contact;
 use App\Service\ContactSessionManager;
@@ -29,7 +30,16 @@ class UsersController extends Controller
     /**
      * @Route("/contact/update",name="contact_update",methods={"POST"})
      */
-    public function contactUpdate(){
-        return new Response("Update");
+    public function contactUpdate(Request $request,ContactSessionManager $csm){
+        $index=$request->get("id");
+        $contact = $csm;
+    }
+    
+    /**
+     * @Route ("/contact/edit/{index}",name="contact_edit")
+     * @param $index
+     */
+    public function contactEdit($index,ContactSessionManager $cManager){
+        return $this->render('users/contact-frm.html.twig',["contact"=>$cManager->get($index),"title"=>"Modification de contact"]);
     }
 }

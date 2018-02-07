@@ -1,0 +1,28 @@
+{%  extends 'base.html.twig' %}
+{% block header %}
+	<h2 class = "ui header">{{ title }}</h2>
+{% endblock %}
+{% block body %}
+	<form action="{{ path("contact_update") }}" method="post" class ="ui form"> 
+		<div class="field">
+			<label for="nom">Nom : </label>
+			<input type="text" value="{{ contact.nom }}">
+			<br>
+			<label for="prenom">Prenom : </label>
+			<input type="text" value="{{ contact.prenom }}">
+			<br>
+			<label for="mail">Mail : </label>
+			<input type="text" value="{{ contact.nom }}">
+			<br>
+			<label for="tel">Tel : </label>
+			<input type="text" value="{{ contact.nom }}">
+			<br>
+		    <label for="mobile">Mobile : </label>
+			<input type="text" value="{{ contact.nom }}">
+			<br>
+		</div>
+		<div class ="field">
+			<button class ="ui button">Valider</button>
+		</div>
+	</form>
+{% endblock %}
